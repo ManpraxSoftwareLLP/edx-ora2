@@ -75,6 +75,7 @@
                     data-preview="feedback"
                     placeholder="{{ rubric_feedback_default_text }}"
                     maxlength="1000"
+                    {% if final_feedback_field_mandatory %}required{% endif %}
                 >
                 </textarea>
                 {% include "openassessmentblock/oa_latex_preview.html" with id="feedback__"|add:rubric_type elem="div" preview_name="feedback" submit_enabled=True %}

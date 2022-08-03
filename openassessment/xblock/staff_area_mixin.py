@@ -17,6 +17,7 @@ from submissions.errors import TeamSubmissionNotFoundError
 from xblock.core import XBlock
 
 from .user_data import get_user_preferences
+from django.conf import settings
 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 
@@ -314,6 +315,9 @@ class StaffAreaMixin:
             context['rubric_feedback_default_text'] = self.rubric_feedback_default_text
 
         context['xblock_id'] = self.get_xblock_id()
+        ORA_FINAL_FEEDBACK_FIELD_MANDATORY = getattr(settings, "ORA_FINAL_FEEDBACK_FIELD_MANDATORY", True)
+        context.update({'final_feedback_field_mandatory':ORA_FINAL_FEEDBACK_FIELD_MANDATORY})
+
         return context
 
     def get_student_info_path_and_context(self, student_username):
