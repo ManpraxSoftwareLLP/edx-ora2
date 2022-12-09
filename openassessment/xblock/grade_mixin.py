@@ -129,9 +129,11 @@ class GradeMixin:
         # It's possible for the score to be `None` even if the workflow status is "done"
         # when all the criteria in the rubric are feedback-only (no options).
         score = workflow['score']
-
+        quotient = score['points_earned'] / score['points_possible']
+        percentage_score = quotient * 100
         context = {
             'score': score,
+            'percentage':round(percentage_score,1),
             'feedback_text': feedback_text,
             'has_submitted_feedback': has_submitted_feedback,
             'student_submission': create_submission_dict(student_submission, self.prompts),

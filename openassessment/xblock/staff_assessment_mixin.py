@@ -96,6 +96,7 @@ class StaffAssessmentMixin:
         workflow = self.get_workflow_info()
         status = workflow.get('status')
         path = 'openassessmentblock/staff/oa_staff_grade.html'
+        # path = 'openassessmentblock/staff/oa_response.html'
         not_available_context = {
             'status_value': self._('Not Available'),
             'button_active': 'disabled=disabled aria-expanded=false',
@@ -148,3 +149,4 @@ class StaffAssessmentMixin:
 
         context['xblock_id'] = self.get_xblock_id()
         return path, context
+        # return context

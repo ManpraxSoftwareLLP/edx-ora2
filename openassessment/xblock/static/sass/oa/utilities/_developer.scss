@@ -106,6 +106,7 @@
   .title {
     @extend %hd-2;
     color: $heading-staff-color;
+    // color: white !important;
     margin-bottom: ($baseline-v/2);
   }
 
@@ -1137,6 +1138,7 @@
     .step__title {
       .step__counter, .step__counter:before {
         display: none;
+        margin-bottom: 10px !important;
       }
 
       .wrapper--copy {
@@ -1149,10 +1151,12 @@
     .step__label, .grade__value {
       display: inline-block;
       vertical-align: middle;
+      // color:white !important;
     }
 
     .step__label {
       @include margin-right(($baseline-h/4));
+      // color:white !important;
     }
 
     .list.leaderboard__score__list {

@@ -91,6 +91,7 @@
 
   .openassessment__steps__step {
     @extend %ui-section;
+    display: none !important;
 
     // step title
     .step__title {
@@ -133,6 +134,7 @@
           content: counter(item, decimal);
           counter-increment: item;
           color: $copy-color;
+          // color: white !important;
         }
 
         @include media($bp-dm) {
@@ -165,16 +167,19 @@
 
       .step__label, .step__deadline {
         display: block;
+        margin-bottom: 10px !important;
       }
 
       .step__label {
         @extend %t-superheading;
+        // color:white !important;
       }
 
       .step__deadline {
         @extend %hd-4;
         color: $heading-color;
         margin-left: 5px;
+        margin-bottom: 10px !important;
       }
     }
 
@@ -257,7 +262,9 @@
     .step__instruction {
       @extend %copy-2;
       margin-bottom: $baseline-v;
-      color: $copy-color;
+      // color: $copy-color;
+      color: black !important;
+      margin-top: 10px !important;
     }
 
     // step content
@@ -368,6 +375,8 @@
 
       .step__instruction, .grade__value__description {
         color: $copy-color;
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
       }
     }
 
@@ -436,6 +445,7 @@
       }
 
       .step__label {
+        // color:white !important;
         color: $color-error;
       }
     }
@@ -548,11 +558,17 @@
   .submission__answer__part__text__value {
     margin: ($baseline-v/2) 0;
     border-color: $gray-d7;
+    background-color: transparent;
+    height:100px;
+    border-radius: 10px;
 
     &:not(textarea) {
       border: 1px solid $color-decorative-secondary;
-      background-color: $white;
+      // background-color: $white;
       padding: $baseline-v;
+      background-color: transparent;
+      height: 100px;
+      border-radius: 10px;
     }
   }
 
@@ -601,7 +617,12 @@
       .submission__answer__part__text {
         textarea {
           @extend %ui-content-longanswer;
-          min-height: ($baseline-v*10);
+          // min-height: ($baseline-v*10);
+          width: 300px;
+          height: 150px;
+          background-color: transparent;
+          border-radius: 10px;      
+            
         }
       }
 
@@ -610,6 +631,8 @@
           @extend %ui-content-longanswer;
           min-height: ($baseline-v*4);
           width: 70%;
+          background-color: transparent;
+          border-radius: 10px;
         }
       }
 
@@ -697,6 +720,9 @@
         textarea {
           @extend %ui-content-longanswer;
           min-height: ($baseline-v*5);
+          background-color: transparent;
+          height:100px;
+          border-radius: 10px;
         }
       }
     }
@@ -766,6 +792,8 @@
         textarea {
           @extend %ui-content-longanswer;
           min-height: ($baseline-v*5);
+          background-color: transparent;
+          border-radius: 10px;
         }
       }
     }
@@ -812,10 +840,12 @@
       .step__label, .grade__value {
         display: inline;
         vertical-align: middle;
+        // color:white !important;
       }
 
       .step__label {
         @include margin-right(($baseline-h/4));
+        // color:white !important;
       }
 
       .grade__value__title {
@@ -1037,6 +1067,7 @@
       @extend %hd-2;
       @extend %t-strong;
       color: $heading-color;
+      // color: white !important;
 
       .ui-hint {
         @extend %trans-color;
@@ -1175,6 +1206,9 @@
     textarea {
       @extend %ui-content-longanswer;
       min-height: ($baseline-v*10);
+      background-color: transparent;
+      border-radius: 10px;
+      height:100px;
     }
   }
 
@@ -1192,4 +1226,9 @@
     @extend %action-2;
     @include margin-right(($baseline-v/2));
   }
+}
+
+
+::placeholder { /* Most modern browsers support this now. */
+  color:    rgb(248, 244, 248);
 }

@@ -11,7 +11,8 @@
   // --------------------
   // porting of normalize.css v3.0.0 | MIT License | git.io/normalize
   // --------------------
-  font-family: sans-serif; /* 1 */
+  // font-family: sans-serif; /* 1 */
+  font-family: 'DM Sans';
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
 
@@ -389,6 +390,7 @@
 
   textarea {
     overflow: auto;
+    border-radius: 10px;
   }
 
   /**
@@ -437,10 +439,11 @@
   article, aside, canvas, details, figcaption, figure,
   footer, header, hgroup, menu, nav, section, summary,
   time, mark, audio, video {
-    margin: 0;
+    // margin: 0;
     vertical-align: baseline;
     border: 0;
-    padding: 0;
+    // padding: 0;
+    color: black !important;
     font-weight: 400;
   }
 
