@@ -262,8 +262,7 @@
     .step__instruction {
       @extend %copy-2;
       margin-bottom: $baseline-v;
-      // color: $copy-color;
-      color: black !important;
+      color: $copy-color;
       margin-top: 10px !important;
     }
 
@@ -445,7 +444,6 @@
       }
 
       .step__label {
-        // color:white !important;
         color: $color-error;
       }
     }

@@ -128,6 +128,75 @@
     text-align: center;
     border-radius: 10px;
     }
+    .gradecard {
+        background: linear-gradient(180deg, #6200D9 0%, #7D5AFA 86.98%);
+        border-radius: 8px; 
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        margin-bottom: 20px;
+
+    }    
+    
+    .heading-status{
+      font-weight: bold;
+      font-size:30px;
+      color: white !important;
+      margin:0;
+      /* padding:none !important; */
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 16px;
+      gap: 40px;
+      /* float:left; */
+    
+    }
+    /* On mouse-over, add a deeper shadow */
+    .gradecard:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
+    .image{
+        float:left;
+    }
+    .grade-percentage{
+        float:right;
+        font-size: 30px !important;
+        color:white !important;
+        margin-top:20px;
+    }
+    .content{
+        color: #7033FF !important;
+        font-family: 'DM Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 140%;
+        padding:none;
+    }
+    
+    .image{
+        float:left;
+    }
+    .grade-card-heading-status{
+      font-weight: 700;
+      font-size:24px;
+      color:#FFFFFF !important;
+      margin:0;
+      gap: 40px;
+      line-height: 120%;
+      font-style: normal;
+      font-family: 'Roc Grotesk';
+    
+    }
+    .gradecardcontent{
+        color: #f7f7f8 !important;
+        font-family: 'DM Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 140%;
+    }
 
 </style>
 {% for part in saved_response.answer.parts %}  
@@ -197,14 +266,6 @@
             {% endblocktrans %}
         </span><br>
         {% endif %}  
-
-      <!-- {%  block title %}
-        <div style="margin-top:10px;">
-	     <span class="badge">
-               {% trans "In Progress" %}
-            </span>
-        </div>
-        {% endblock %} -->
 
 
  {% block body %}
@@ -309,18 +370,18 @@
                             </div>
                         {% endif %}
                         {% if text_response %}
-                        <!-- <li class="field"> -->
+                        <li class="field">
                             <div class="response__submission__actions">
                                 <div class="message message--inline message--error message--error-server" tabindex="-1">
                                     <h5 class="message__title">{% trans "We could not save your progress" %}</h5>
                                     <div class="message__content"></div>
                                 </div>
 
-                                <!-- <ul class="list list--actions"> -->
-                                    <!-- <li class="list--actions__item"> -->
+                                <ul class="list list--actions"> 
+                                     <li class="list--actions__item">
                                         <button type="submit" class="action action--save submission__save" 
-                                            aria-describedby="response__save_status__{{ xblock_id }}">
-                                            {% trans "Submit your work" %}
+                                            aria-describedby="response__save_status__{{ xblock_id }}" disabled>
+                                            {% trans "Save Your Progress" %}
                                         </button>
 
                                         <div id="response__save_status__{{ xblock_id }}" class="save__submission__label response__submission__label">
@@ -328,9 +389,9 @@
                                             {{ save_status }}
  </div>
                                     </li>
-                                <!-- </ul> -->
+                                </ul>
                             </div>
-                        <!-- </li> -->
+                        </li>
                         {% endif %}
                         {% if file_upload_type %}
                         <li class="field">
@@ -364,6 +425,23 @@
                     <span class="tip" id="submission__answer__tip__{{ xblock_id }}">{% trans "You may continue to work on your response until you submit it." %}</span>
 
                 </form>
+            </div>
+            <div class="step__actions">
+                <div class="message message--inline message--error message--error-server" tabindex="-1">
+                    <h5 class="message__title">{% trans "We could not submit your response" %}</h5>
+                    <div class="message__content"></div>
+                </div>
+
+                <ul class="list list--actions">
+                    <li class="list--actions__item">
+                        <button type="submit" class="action action--submit step--response__submit"
+                                text_response="{{text_response}}"
+                                file_upload_response="{{file_upload_response}}"
+                                {{submit_enabled|yesno:",disabled" }}>
+                            {% trans "Submit your response" %}
+                        </button>
+                    </li>
+                </ul>
             </div>
 
         {% endblock %}
