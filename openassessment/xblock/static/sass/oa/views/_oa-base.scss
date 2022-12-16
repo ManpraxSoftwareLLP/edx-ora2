@@ -576,9 +576,10 @@
 
     // response form
     .response__submission {
-      padding: ($baseline-v/2) ($baseline-h/4) $baseline-v ($baseline-h/4);
-      background: $color-decorative-quaternary;
-      border-radius: ($baseline-v/10);
+      // padding: ($baseline-v/2) ($baseline-h/4) $baseline-v ($baseline-h/4);
+      // background: $color-decorative-quaternary;
+      background: transparent !important;
+      // border-radius: ($baseline-v/10);
     }
 
     .response__submission__content {

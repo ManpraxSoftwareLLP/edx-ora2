@@ -1,8 +1,8 @@
 {% extends "openassessmentblock/response/oa_response.html" %}
 {% load i18n %}
 
-{% block list_item %}
-<li id="openassessment__response__{{ xblock_id }}"
+<!-- {% block list_item %} -->
+<!-- <li id="openassessment__response__{{ xblock_id }}"
     class="openassessment__steps__step step--response is--complete ui-slidable__container {% if allow_latex %}allow--latex{%endif%} is--initially--collapsed"
     tabindex="-1">
 {% endblock %}
@@ -11,18 +11,24 @@
     <button class="ui-slidable" aria-expanded="true" id="oa_response_{{ xblock_id }}" aria-controls="oa_response_{{ xblock_id }}_content" aria-labeledby="oa_step_title_response">
         <span class="icon fa fa-caret-right" aria-hidden="false"/>
     </button>
-{% endblock %}
-
-{% block title %}
-<span class="step__status">
-  <span id="oa_step_status_response" class="step__status__value">
-    <span class="icon fa fa-check" aria-hidden="true"></span>
-    <span class="copy">{% trans "Complete" %}</span>
-  </span>
-</span>
-{% endblock %}
+{% endblock %} -->
 
 {% block body %}
+<div class="gradecard">
+    <div class="content">
+       <div class="image-percentage"> 
+           <div class="image">
+               <img src="/static/img/Image.png">
+           </div> 
+           <percentage class="grade-percentage">{{percentage}} %</percentage> 
+       </div><br><br> <br><br>
+     <status class="grade-card-heading-status">Got Your Staff Grade</status> <br>
+       <paragraph class="gradecardcontent" style="color:white;">
+       Course Staff member has assessed your Response. 
+       Try hard!! 
+       </p>
+    </div>
+</div> 
 <div class="ui-slidable__content" aria-labelledby="oa_response_{{ xblock_id }}" id="oa_response_{{ xblock_id }}_content">
     <div class="wrapper--step__content">
         <div class="step__content">

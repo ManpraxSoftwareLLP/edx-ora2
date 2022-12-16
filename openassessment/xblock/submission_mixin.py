@@ -686,6 +686,7 @@ class SubmissionMixin:
 
         """
         workflow = self.get_workflow_info()
+        status = workflow.get('status')
         problem_closed, reason, start_date, due_date = self.is_closed('submission')
         user_preferences = get_user_preferences(self.runtime.service(self, 'user'))
 
@@ -698,6 +699,8 @@ class SubmissionMixin:
             "file_upload_response": self.file_upload_response,
             "prompts_type": self.prompts_type,
             "enable_delete_files": False,
+            "workflow": workflow,
+            "status": status,
         }
 
         # Due dates can default to the distant future, in which case
@@ -777,6 +780,11 @@ class SubmissionMixin:
                 workflow["submission_uuid"]
             )
             context["student_submission"] = create_submission_dict(student_submission, self.prompts)
+            context.update({"score": workflow['score']})
+            score = workflow['score']
+            quotient = score['points_earned'] / score['points_possible']
+            percentage_score = quotient * 100
+            context.update({"percentage": round(percentage_score,1)})
             path = 'openassessmentblock/response/oa_response_graded.html'
         else:
             student_submission = self.get_user_submission(
