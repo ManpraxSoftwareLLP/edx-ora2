@@ -36,7 +36,7 @@
     }
 
     .waiting-for-response-card-content{
-        color: #f7f7f8 !important;
+        color: #7033FF !important;
         font-family: 'DM Sans';
         font-style: normal;
         font-weight: 400;
@@ -62,19 +62,11 @@
             line-height: 120%;
             color: #6A00EF;
             margin:0;
-            /* padding:none !important; */
-            flex: none;
-            order: 0;
-            flex-grow: 0;
-            flex-direction: column;
-            /* align-items: flex-start;
-            padding: 16px;
-            gap: 40px; */
             
     }
 
     .tryassessmentcard-content{
-        color: #7033FF !important;
+        color: #6A00EF !important;
         font-family: 'DM Sans';
         font-style: normal;
         font-weight: 400;
@@ -389,7 +381,7 @@ tabindex="-1">
                                     <div class="message__content"></div>
                                 </div>
                             </div>
-                            <label class="sr" for="submission_answer_upload_{{ xblock_id }}">{% trans "Select a file to upload for this submission." %}</label>
+                            <label class="sr" for="submission_answer_upload_{{ xblock_id }}">{% trans "Select File" %}</label>
                             <input type="file" class="submission__answer__upload file--upload" id="submission_answer_upload_{{ xblock_id }}" multiple="">
                             <button type="submit" class="file__upload action action--upload" disabled>{% trans "Upload files" %}</button>
                             <div class="files__descriptions"></div>
