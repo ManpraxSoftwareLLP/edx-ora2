@@ -188,7 +188,53 @@
         font-size: 14px;
         line-height: 140%;
     }
+    #upload-container{
+        text-align:center;
+        background: transparent !important;
+        margin-top: 10px !important;
+        }
+        
+    #upload-border{
+        height:40px;
+        border:1px solid #2c3035;
+        display:inline-block;
+        width:330px;
+        border-radius:5px;      
+        }
 
+    #upload-name{
+        margin-top: 10px;
+        height:70%;
+        border:none;
+
+    }
+
+    #upload-button{
+        height:100%;
+        float:right;
+        border:none;
+        background:transparent !important;
+        cursor:pointer;
+    }
+    .image-upload>input {
+        display: none;
+        }    
+
+    .upload-img{
+        width:40px;
+        height:60px;
+        margin-top: 20px;
+        /* position: */
+    }
+    
+    .file-label{
+        font-weight: 400;
+        color:white;
+        font-size:14px;
+        line-height:16.8px;
+        margin-bottom:10px;
+        margin-top:30px;
+    }
 </style>
 {% block list_item %}
 <!-- <li class="openassessment__steps__step step--response is--in-progress is--showing ui-slidable__container" -->
@@ -309,6 +355,28 @@ tabindex="-1">
                                         {% endif %}
                                     </div>
                                 <!-- </article> -->
+                                 <!-- <label for="submission_answer_upload_{{ xblock_id }}"></label> -->
+                             <!-- <description class="file-label">Select File</description>  -->
+                                <div id="upload-container">
+                                    <div id="upload-border"> 
+                                            <input type="text" id="upload-name-assessment" value="Upload file" disabled="true" />
+                                            <label for="upload-folder">
+                                                <div class="tryassessmentimageright">
+                                                    <img src='/static/img/Union.svg' id="upload-img" />
+                                                </div>          
+                                            </label>   
+                                            <input type="file" id="upload-folder" style="display:none;"/>
+                                    </div>
+                                </div>    
+                             
+                             <!-- <div class="fileUpload btn btn--browse">
+                                     <input value="upload file" type="file"  id="submission_answer_upload_{{ xblock_id }}" multiple="">
+                                 </div> -->
+                             
+                             
+                             <!-- <button type="submit" class="file__upload action action--upload" disabled>{% trans "Upload files" %}</button>
+                              -->
+                             <div class="files__descriptions"></div>
 
 
                                 {% if text_response %}
@@ -387,16 +455,12 @@ tabindex="-1">
                                     <div class="message__content"></div>
                                 </div>
                             </div>
-                            <label class="sr" for="submission_answer_upload_{{ xblock_id }}">{% trans "Select File" %}</label>
-                            <input type="file" class="submission__answer__upload file--upload" id="submission_answer_upload_{{ xblock_id }}" multiple="">
-                            <button type="submit" class="file__upload action action--upload" disabled>{% trans "Upload files" %}</button>
-                            <div class="files__descriptions"></div>
+                           
                         </li>
                         {% endif %}
                         <li class="field">
                         {% include "openassessmentblock/oa_uploaded_file.html" with file_upload_type=file_upload_type file_urls=file_urls class_prefix="submission__answer" including_template="response" xblock_id=xblock_id %}
                         </li>
-                        <hr/>
                         <li class="field">
                         {% include "openassessmentblock/oa_team_uploaded_files.html" with file_upload_type=file_upload_type team_file_urls=team_file_urls class_prefix="submission__team__answer" including_template="response" xblock_id=xblock_id %}
                         </li>
@@ -412,6 +476,8 @@ tabindex="-1">
                     <h5 class="message__title">{% trans "We could not submit your response" %}</h5>
                     <div class="message__content"></div>
                 </div>
+                <button type="submit" class="file__upload action action--upload" disabled>{% trans "Upload files" %}</button>
+                             
 
                 <ul class="list list--actions">
                     <li class="list--actions__item">

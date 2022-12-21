@@ -664,6 +664,7 @@ OpenAssessment.ResponseView.prototype = {
         var filesDescriptions = $(this.element).find('.files__descriptions').first();
         var mainDiv = null;
         var divLabel = null;
+        var divHeading = null;
         var divTextarea = null;
         var divImage = null;
         var img = null;
@@ -677,15 +678,23 @@ OpenAssessment.ResponseView.prototype = {
 
         for (var i = 0; i < files.length; i++) {
             mainDiv = $('<div/>');
+            divHeading = $('<div/>');
 
             divLabel = $('<div/>');
+            divHeading.addClass('submission__file__description__filename__label');
+            divHeading.text(files[i].name);
+            divHeading.appendTo(mainDiv);
             divLabel.addClass('submission__file__description__label');
-            divLabel.text(gettext('Describe ') + files[i].name + ' ' + gettext('(required):'));
+            
+            divLabel.text(gettext('Description*'));
             divLabel.appendTo(mainDiv);
+            // divLabel.text(gettext('Description*'));
+            // divLabel.appendTo(mainDiv);
 
             divTextarea = $('<div/>');
             divTextarea.addClass('submission__file__description');
-            textarea = $('<textarea />', {
+            textarea = $('<textarea />', {    
+                    
                 'aria-label': gettext('Describe ') + files[i].name,
             });
             if ((this.filesDescriptions.indexOf(i) !== -1) && (this.filesDescriptions[i] !== '')) {
