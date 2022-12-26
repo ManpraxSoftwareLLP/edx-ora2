@@ -381,7 +381,9 @@ class AssessmentWorkflow(TimeStampedModel, StatusModel):
                 # Only set the score if it's not a staff score, in which case it will have already been set above
                 if score.get("staff_id") is None:
                     self.set_score(score)
-                new_status = self.STATUS.done
+                # new_status = self.STATUS.done    
+                #this is changed because of admin release grade functionality 
+                new_status = self.STATUS.waiting
 
         # Finally save our changes if the status has changed
         if self.status != new_status:
